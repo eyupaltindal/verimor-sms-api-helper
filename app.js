@@ -5,8 +5,8 @@ const indexRouter = require('./routes/index');
 const app = express();
 
 // view engine setup
-app.use(express.json());
-// app.use(express.json({limit: '50mb'}));
+// app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 
 app.use('/', indexRouter);
 
@@ -23,8 +23,8 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
-    // res.json({ error: err })
+    // res.render('error');
+    res.json({ error: err })
 });
 
 module.exports = app;
